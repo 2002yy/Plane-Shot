@@ -47,7 +47,7 @@ text
 | 空格键      | 发射子弹     |
 | ESC        | 返回主菜单   |
 
-**目标**：躲避敌机，收集红包（🧧），生存越久得分越高！
+**目标**：移动飞机，收集红包（🧧），越多金额越高！
 
 ---
 
@@ -90,10 +90,12 @@ jar cvfe game.jar Main -C bin .
 # 4. 生成绿色 EXE（关键！）
 jpackage --type app-image --name "PlaneShot" --input . --main-jar game.jar --main-class Main
 生成结果：PlaneShot/ 文件夹（可直接压缩分发）
-📄 许可证
+
+## 📄 许可证
 本项目采用 MIT License — 允许自由使用、修改和分发。
 注：游戏素材（图片等）若非原创，请确保你有合法使用权。
-❤️ 致谢
+
+## ❤️ 致谢
 使用 Java 17 + jpackage 打包为独立应用
 灵感来自经典街机射击游戏
 Made with ☕ | 解压即玩 · 无需配置 · 纯粹乐趣
