@@ -90,6 +90,7 @@ jar cvfe game.jar Main -C bin .
 # 4. 生成绿色 EXE（关键！）
 jpackage --type app-image --name "PlaneShot" --input . --main-jar game.jar --main-class Main
 生成结果：PlaneShot/ 文件夹（可直接压缩分发）
+```
 
 ## 📄 许可证
 本项目采用 MIT License — 允许自由使用、修改和分发。
