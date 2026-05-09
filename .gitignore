@@ -1,4 +1,5 @@
-game.jar
+*.class
+*.jar
 userDatabase.txt
 *_original.*
 image
