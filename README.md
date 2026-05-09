@@ -92,7 +92,7 @@ jpackage --type app-image --name "PlaneShot" --input . --main-jar game.jar --mai
 ├── UserManager.java        # 账号管理（自动创建 userDatabase.txt）
 ├── bg.jpg / plane.jpg      # 游戏素材图片
 ├── icon.ico                # 应用图标
-└── 类图.md                 # 类结构图
+└── class-diagram.md         # UML 类结构图
 ```
 
 ---
