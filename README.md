@@ -20,14 +20,16 @@
 
 ## ▶️ 如何运行？
 
-1. **下载最新版压缩包**  
-   👉 [Releases 页面](https://github.com/2002yy/Plane-Shot/releases)
+### 🎮 方式一：直接下载 JAR（需要 Java）
+1. 前往 [Releases 页面](https://github.com/2002yy/Plane-Shot/releases) 下载最新 `game.jar`
+2. 确保已安装 [Java 17+](https://adoptium.net/)
+3. 双击运行，或终端执行：
+```bash
+java -jar game.jar
+```
 
-2. **解压到任意文件夹**（如桌面）
-
-3. **双击运行** `PlaneShot.exe`
-
-> ⚠️ 请勿删除文件夹内的其他文件（它们是游戏必需组件）。
+### 📦 方式二：开发者自行打包
+见下方 [从源码构建](#-开发者从源码构建)
 
 ---
 
@@ -39,7 +41,25 @@
 
 **目标**：移动飞机，收集红包（🧧），越多金额越高！
 
-**账号说明**：首次运行会自动创建 `userDatabase.txt` 存储账号信息。默认账号 `admin` / `2002`，可自行注册新账号。
+**账号说明**：首次运行自动创建 `userDatabase.txt`。默认账号 `admin` / `2002`，可自行注册。
+
+---
+
+## 📂 项目结构
+
+```
+├── Main.java                 # 游戏入口，启动登录
+├── GameWindow.java           # 主游戏窗口、渲染、控制
+├── LoginWindow.java          # 登录/注册界面
+├── LevelSelectionWindow.java # 关卡选择
+├── UserManager.java          # 账号管理（读写 userDatabase.txt）
+├── bg.jpg                    # 游戏背景图
+├── plane.jpg                 # 飞机素材
+├── red_package.jpg           # 红包素材（小）
+├── red package.jpg           # 红包素材（大）
+├── icon.ico                  # 应用图标
+└── 类图.md                   # UML 类结构图
+```
 
 ---
 
