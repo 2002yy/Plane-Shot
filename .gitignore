@@ -2,4 +2,4 @@
 *.jar
 userDatabase.txt
 *_original.*
-image
+/image

@@ -20,10 +20,10 @@
 
 ## ▶️ 如何运行？
 
-### 🎮 方式一：直接下载 JAR（需要 Java）
-1. 前往 [Releases 页面](https://github.com/2002yy/Plane-Shot/releases) 下载最新 `game.jar`
-2. 确保已安装 [Java 17+](https://adoptium.net/)
-3. 双击运行，或终端执行：
+### 🎮 方式一：直接下载（需要 Java）
+1. 前往 [Releases 页面](https://github.com/2002yy/Plane-Shot/releases) 下载最新 `PlaneShot_v1.0.zip`
+2. 解压到任意文件夹
+3. 确保已安装 [Java 17+](https://adoptium.net/)，双击 `game.jar` 或终端运行：
 ```bash
 java -jar game.jar
 ```
