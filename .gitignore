@@ -1,5 +1,4 @@
-*.jar
-*.class
-*.zip
-*.txt
+game.jar
+userDatabase.txt
 *_original.*
+image
