@@ -3,6 +3,12 @@
 > 2D 飞机射击小游戏 · Java Swing 怀旧风
 
 ---
+> 
+> Portfolio note: this is an early Java desktop practice project.
+> It is kept for GUI, Java 17 and packaging history, not as a main job-seeking project.
+> 
+> > 作品集说明：这是早期 Java 桌面 GUI 练习项目，保留用于展示 Java 17、Swing/AWT 和 jpackage 打包记录，不作为核心求职项目。
+
 
 ## 1. 📌 项目一句话定位
 
@@ -297,6 +303,15 @@ jpackage --type exe      \
 - [ ] 更丰富的敌机种类与 Boss 战
 
 ---
+
+---
+
+## 8.5 🔧 Possible Improvements
+
+- Replace local text file user storage with SQLite.
+- Add unit tests for UserManager.
+- Add release checksum verification.
+- Replace non-original assets before redistribution.
 
 ## 9. 📄 License / Notes
 
