@@ -41,16 +41,6 @@ public class UserManager {
         }
     }
 
-    public void printAllUserInfo() {
-        if (userDatabase.containsKey("admin")) {
-            for (Map.Entry<String, String> entry : userDatabase.entrySet()) {
-                System.out.println("用户名: " + entry.getKey() + ", 密码: " + entry.getValue());
-            }
-        } else {
-            System.out.println("没有管理员权限。");
-        }
-    }
-
     // 加载用户数据库文件
     public void loadDatabaseFromFile() {
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
