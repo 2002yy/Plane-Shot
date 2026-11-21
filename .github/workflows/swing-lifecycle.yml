@@ -1,0 +1,41 @@
+name: Java Swing lifecycle
+
+on:
+  pull_request:
+    paths:
+      - 'GameWindow.java'
+      - 'tests/GameWindowLifecycleTest.java'
+      - '.github/workflows/swing-lifecycle.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'GameWindow.java'
+      - 'tests/GameWindowLifecycleTest.java'
+      - '.github/workflows/swing-lifecycle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  swing-lifecycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile game and lifecycle test
+        run: |
+          mkdir -p "$RUNNER_TEMP/classes"
+          javac -encoding UTF-8 -d "$RUNNER_TEMP/classes" *.java tests/GameWindowLifecycleTest.java
+      - name: Verify modal-wave transitions in a virtual desktop
+        run: |
+          if ! command -v xvfb-run >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y xvfb
+          fi
+          workdir="$(mktemp -d)"
+          cd "$workdir"
+          xvfb-run -a java -Dfile.encoding=UTF-8 -cp "$RUNNER_TEMP/classes" GameWindowLifecycleTest

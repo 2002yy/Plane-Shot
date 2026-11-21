@@ -335,17 +335,21 @@ public class GameWindow extends JFrame {
 
             // 如果所有小怪都被消灭，则进入下一波或下一关
             if (enemies.isEmpty() && !levelCompleted) {
+                // Modal dialogs process nested Swing events; stop the tick first
+                // so an empty wave cannot open overlapping completion dialogs.
+                repaintTimer.stop();
                 if (bo < 3*level) {
                     JOptionPane.showMessageDialog(GameWindow.this, "恭喜！你完成了第 "+bo+" 波！", "Mission Complete", JOptionPane.INFORMATION_MESSAGE);
                     bo++;
                     numberOfEnemies=numberOfEnemies*2;
                     resetGame(numberOfEnemies);
+                    repaintTimer.start();
                 } else {
+                    levelCompleted = true;
                     JOptionPane.showMessageDialog(GameWindow.this, "恭喜！你完成了第"+level+"关卡！", "You Win", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                    levelCompleted = true; // 设置标志变量为 true，防止重复弹窗
-                    // LevelSelectionWindow 是一个已存在的类，用于选择下一个级别
-                     new LevelSelectionWindow(settingValue).setVisible(true);
+                    new LevelSelectionWindow(settingValue);
+                    return;
                 }
             }
 
@@ -354,6 +358,15 @@ public class GameWindow extends JFrame {
         repaintTimer.start(); // 启动定时器
 
         setVisible(true); // 设置窗口可见
+    }
+
+    @Override
+    public void dispose() {
+        // The timer is owned by this window, not by the application.
+        if (repaintTimer != null) {
+            repaintTimer.stop();
+        }
+        super.dispose();
     }
 
     // 重置游戏状态的方法
