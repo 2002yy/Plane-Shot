@@ -3,13 +3,13 @@ name: Java Swing lifecycle
 on:
   pull_request:
     paths:
-      - 'GameWindow.java'
+      - '*.java'
       - 'tests/GameWindowLifecycleTest.java'
       - '.github/workflows/swing-lifecycle.yml'
   push:
     branches: [main]
     paths:
-      - 'GameWindow.java'
+      - '*.java'
       - 'tests/GameWindowLifecycleTest.java'
       - '.github/workflows/swing-lifecycle.yml'
 
