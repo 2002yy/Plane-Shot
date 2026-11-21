@@ -248,10 +248,12 @@ java -jar game.jar
 
 ## 6. 🧪 Testing / CI
 
-当前项目 **暂未集成单元测试** 与 CI 流水线。
+当前已建立一项 **Swing 图形界面集成回归测试**，并接入 GitHub Actions；这不是覆盖全部业务逻辑的单元测试套件。
 
-- 测试方式：手动运行验证
-- CI：待补充
+- 测试：`tests/GameWindowLifecycleTest.java` 在真实 Swing 事件循环中检查关卡完成弹窗、下一波恢复、最终胜利和窗口关闭时的定时器释放。
+- CI：[`Java Swing lifecycle`](./.github/workflows/swing-lifecycle.yml) 使用 Java 17、Linux 虚拟显示 `Xvfb` 编译全部根目录 `*.java`，运行上述回归测试。
+- 触发范围：根目录 Java 源码、回归测试或工作流发生变化时的 push / pull request。
+- 手工验证仍需覆盖登录、注册、找回密码、各关卡玩法和本机打包；CI 尚未自动覆盖这些行为。
 
 ---
 
@@ -299,7 +301,8 @@ jpackage --type exe      \
 - [ ] 道具系统（加速、护盾、子弹升级）
 - [ ] 移动端触控适配
 - [ ] 国际化（i18n）支持
-- [ ] 单元测试与 CI 集成
+- [x] Swing 生命周期集成回归测试与 GitHub Actions CI
+- [ ] 登录、存档和关卡逻辑的独立单元测试
 - [ ] 更丰富的敌机种类与 Boss 战
 
 ---
